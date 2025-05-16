@@ -148,7 +148,7 @@ API available at: `http://localhost:3000/dev/download`
 
 ## API Reference
 
-Initiates the download of a YouTube video using the URL http://localhost:3000/download?youtube_id=<youtube_video_id>&format=<youtube_video_format>&quality=<youtube_video_quality>, stores it in the LocalStack S3 bucket, and saves metadata to the PostgreSQL database. The response includes an S3 URL in the format http://localhost:4566/youtube-downloader-bucket/videos/<youtube_id>_<timestamp>.<format>. Opening this URL in a browser or using a tool like curl will download the video or audio file stored in the LocalStack S3 bucket.
+Initiates the download of a YouTube video using the URL http://localhost:3000/download?youtube_id=<youtube_video_id>&format=<youtube_video_format>&quality=<youtube_video_quality>, stores it in the LocalStack S3 bucket, and saves metadata to the PostgreSQL database. The response includes an S3 URL in the format http://localhost:4566/youtube-downloader-bucket/videos/<youtube_id>_<timestamp> . <format>. Opening this URL in a browser or using a tool like curl will download the video or audio file stored in the LocalStack S3 bucket.
 
 ## Example URL
 ```bash
