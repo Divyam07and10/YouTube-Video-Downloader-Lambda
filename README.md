@@ -6,7 +6,7 @@ This is a serverless application built with the Serverless Framework, designed t
 
 - **Supported Formats**: mp4, webm, mkv, mp3
 - **Supported Qualities**: 360p, 480p, 720p, 1080p, 4k (ignored for mp3)
-- **Storage**: Videos are uploaded to a LocalStack S3 bucket with URLs in the format s3://youtube-downloader-bucket/videos/<youtube_id>_<timestamp>.<format>.
+- **Storage**: Videos are uploaded to a LocalStack S3 bucket with URLs in the format `s3://youtube-downloader-bucket/videos/<youtube_id>_<timestamp>.<format>`.
 - **Database**: Saves metadata(YouTube ID, title, duration, resolution, S3 URL, format, quality) to PostgreSQL (`videos` table)
 - **API**: REST endpoint (/download) accepts POST and GET requests with youtube_id, format, and quality parameters.
 - **Fallback Logic**: Automatically falls back to `pytube` if `yt_dlp` fails
@@ -148,7 +148,7 @@ API available at: `http://localhost:3000/dev/download`
 
 ## API Reference
 
-Initiates the download of a YouTube video using the URL http://localhost:3000/download?youtube_id=<youtube_video_id>&format=<youtube_video_format>&quality=<youtube_video_quality>, stores it in the LocalStack S3 bucket, and saves metadata to the PostgreSQL database. The response includes an S3 URL in the format http://localhost:4566/youtube-downloader-bucket/videos/<youtube_id>_<timestamp> . <format>. Opening this URL in a browser or using a tool like curl will download the video or audio file stored in the LocalStack S3 bucket.
+Initiates the download of a YouTube video using the URL http://localhost:3000/download?youtube_id=<youtube_video_id>&format=<youtube_video_format>&quality=<youtube_video_quality>, stores it in the LocalStack S3 bucket, and saves metadata to the PostgreSQL database. The response includes an S3 URL in the format `http://localhost:4566/youtube-downloader-bucket/videos/<youtube_id>_<timestamp>.<format>`. Opening this URL in a browser or using a tool like curl will download the video or audio file stored in the LocalStack S3 bucket.
 
 ## Example URL
 ```bash
