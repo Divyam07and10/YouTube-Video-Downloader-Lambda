@@ -198,6 +198,11 @@ aws --endpoint-url=http://localhost:4566 s3 ls s3://youtube-downloader-bucket/vi
 
 ---
 
-## License
+### 💬 Want to contribute?
+- Fork and open a PR!
+- Discuss via GitHub Issues or email.
 
-MIT License
+---
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
