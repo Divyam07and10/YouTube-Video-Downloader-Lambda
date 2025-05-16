@@ -165,7 +165,7 @@ http://localhost:3000/download?youtube_id=AR9wAiAniu0&format=mp4&quality=720p
     "title": "Sample Video",
     "duration": 300,
     "resolution": "1280x720",
-    "size_bytes": 10500000,
+    "s3_url": "http://localhost:4566/youtube-downloader-bucket/videos/AR9wAiAniu0_1631234567890.mp4",
     "format": "mp4",
     "quality": "720p"
   }
