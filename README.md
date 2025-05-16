@@ -178,6 +178,8 @@ http://localhost:3000/download?youtube_id=AR9wAiAniu0&format=mp4&quality=720p
 - Supported formats: mp4, webm, mkv, mp3.
 - Supported qualities: 360p, 480p, 720p, 1080p, 4k (ignored for mp3).
 
+---
+
 ## Notes
 
 - If `yt_dlp` fails, `pytube` will be used automatically.
