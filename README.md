@@ -180,6 +180,14 @@ http://localhost:3000/download?youtube_id=AR9wAiAniu0&format=mp4&quality=720p
 
 ---
 
+## Verification of Videos stored in the LocalStack mock S3 Bucket:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 ls s3://youtube-downloader-bucket/videos/
+```
+
+---
+
 ## Notes
 
 - If `yt_dlp` fails, `pytube` will be used automatically.
