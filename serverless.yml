@@ -1,0 +1,41 @@
+service: youtube-downloader
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    S3_BUCKET_NAME: youtube-downloader-bucket
+    LOCALSTACK_ENDPOINT: http://localhost:4566
+    AWS_ACCESS_KEY_ID: test
+    AWS_SECRET_ACCESS_KEY: test
+    AWS_REGION: us-east-1
+    DB_HOST: localhost
+    DB_PORT: '5432'
+    DB_NAME: aws_yt
+    DB_USER: postgres
+    DB_PASSWORD: divyam
+
+functions:
+  download:
+    handler: handler.download_video
+    timeout: 300  # Increased to 5 minutes
+    memorySize: 1024  # Increased to 1 GB
+    ephemeralStorageSize: 1024  # Increased to 1 GB for /tmp
+    events:
+      - http:
+          path: download
+          method: post
+      - http:
+          path: download
+          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+  - serverless-dotenv-plugin
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
