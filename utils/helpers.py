@@ -15,5 +15,5 @@ def delete_local_file(file_path: str):
 def get_youtube_url(video_id: str) -> str:
     return f"https://www.youtube.com/watch?v={video_id}"
 
-def get_temporary_download_file_path(video_id: str, format: str = "mp4") -> str:
+def get_temporary_download_file(video_id: str, format: str = "mp4") -> str:
     return f"/tmp/{video_id}.{format}"

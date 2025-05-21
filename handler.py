@@ -16,15 +16,15 @@ def download_video(event, context):
         quality = validated_data["quality"]
 
         # Download the video
-        file_path, info = download_youtube_video(youtube_id, video_format, quality)
-        if not file_path or not os.path.exists(file_path):
+        temporary_file, info = download_youtube_video(youtube_id, video_format, quality)
+        if not temporary_file or not os.path.exists(temporary_file):
             return {
                 "statusCode": 500,
                 "body": json.dumps({"error": "Failed to download video or file not found"})
             }
 
         # Extract metadata
-        metadata = extract_metadata(file_path, info)
+        metadata = extract_metadata(temporary_file, info)
         metadata.update({
             "youtube_id": youtube_id,
             "format": video_format,
@@ -32,14 +32,14 @@ def download_video(event, context):
         })
 
         # Upload to S3
-        s3_url = upload_to_s3(file_path, youtube_id, video_format)
+        s3_url = upload_to_s3(temporary_file, youtube_id, video_format)
         metadata["s3_url"] = s3_url
 
         # Save to database
         save_video_metadata(metadata)
         
         # Clean up the temporary file
-        delete_local_file(file_path)
+        delete_local_file(temporary_file)
 
         return {
             "statusCode": 200,
