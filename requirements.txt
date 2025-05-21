@@ -1,0 +1,6 @@
+boto3
+yt_dlp
+pytube
+psycopg2-binary
+python-dotenv
+requests

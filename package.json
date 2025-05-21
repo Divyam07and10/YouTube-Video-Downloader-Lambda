@@ -1,0 +1,13 @@
+{
+    "name": "youtube-downloader",
+    "version": "1.0.0",
+    "devDependencies": {
+      "serverless": "3.40.0",
+      "serverless-offline": "^8.8.1",
+      "serverless-dotenv-plugin": "^6.0.0",
+      "serverless-python-requirements": "^6.1.2"
+    },
+    "scripts": {
+      "start": "sls offline start"
+    }
+  }

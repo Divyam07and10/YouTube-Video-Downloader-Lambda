@@ -1,0 +1,40 @@
+service: youtube-downloader
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    S3_BUCKET_NAME: ${env:S3_BUCKET_NAME, 'youtube-downloader-bucket'}
+    AWS_REGION: ${env:AWS_REGION, 'us-east-1'}
+    AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID, 'test'}
+    AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY, 'test'}
+    IS_DEVELOPMENT: ${env:IS_DEVELOPMENT, 'False'}
+    DB_HOST: ${env:DB_HOST, 'localhost'}
+    DB_PORT: ${env:DB_PORT, '5432'}
+    DB_NAME: ${env:DB_NAME, 'aws_yt'}
+    DB_USER: ${env:DB_USER, 'postgres'}
+    DB_PASSWORD: ${env:DB_PASSWORD, 'divyam'}
+functions:
+  download:
+    handler: handler.download_video
+    timeout: 300
+    memorySize: 1024
+    ephemeralStorageSize: 1024
+    events:
+      - http:
+          path: download
+          method: post
+      - http:
+          path: download
+          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+  - serverless-dotenv-plugin
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true

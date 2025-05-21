@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "f820e157-0f60-47a6-9e9f-f1c4f9fa0610",
+		"name": "YouTube Video Downloader Lambda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42522477"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"youtube_id\": \"KIEDH81LUX8\",\n  \"format\": \"mp4\",\n  \"quality\": \"720p\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/download",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"download"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/download?youtube_id=KIEDH81LUX8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"download"
+					],
+					"query": [
+						{
+							"key": "youtube_id",
+							"value": "KIEDH81LUX8"
+						},
+						{
+							"key": "format",
+							"value": "mp4",
+							"disabled": true
+						},
+						{
+							"key": "quality",
+							"value": "720p",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
