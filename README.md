@@ -94,10 +94,21 @@ pip install -r requirements.txt
 * macOS: `brew install ffmpeg`
 * Verify: `ffmpeg -version`
 
-### 4. Start LocalStack
+### 4. Install and Start LocalStack for Local Simulation
 
+LocalStack simulates AWS services (e.g., S3, Lambda) locally. Install it using pip:
+```bash
+pip install localstack
+```
+
+Start LocalStack in detached mode:
 ```bash
 localstack start -d
+```
+
+Verify LocalStack is running:
+```bash
+localstack status services
 ```
 
 ### 5. Start PostgreSQL Locally
